@@ -29,7 +29,7 @@ macro_rules! levenshtein_distance {
 /// # Example
 ///
 /// ```rust
-/// # #[macro_use] extern crate test_data_generation; extern crate rand;
+/// # #[macro_use] extern crate test_data_generation; extern crate fastrand;
 /// # fn main() {
 ///     let rnd: f64 = random_percentage!();
 ///     println!("Your random number is {}", rnd);
@@ -38,10 +38,10 @@ macro_rules! levenshtein_distance {
 #[macro_export]
 macro_rules! random_percentage {
     ( $( $x:expr ),* ) => {{
-        use rand::{thread_rng, Rng};
+        use fastrand; //DevSkim: ignore DS148264
 
-        let mut rng = thread_rng();
-        let nbr: f64 = rng.gen_range(0_f64..100_f64);
+        let mut rng = fastrand::Rng::new(); //DevSkim: ignore DS148264
+        let nbr: f64 = rng.f64() * 100_f64; //DevSkim: ignore DS148264
 
         nbr
     }};
@@ -58,7 +58,7 @@ macro_rules! random_percentage {
 /// # Example
 ///
 /// ```rust
-/// # #[macro_use] extern crate test_data_generation; extern crate rand;
+/// # #[macro_use] extern crate test_data_generation; extern crate fastrand;
 /// # fn main() {
 ///     let rnd: u32 = random_between!(0, 100);
 ///     println!("Your random number is {}", rnd);
@@ -67,10 +67,10 @@ macro_rules! random_percentage {
 #[macro_export]
 macro_rules! random_between {
     ($a:expr, $b:expr) => {{
-        use rand::{thread_rng, Rng};
+        use fastrand; //DevSkim: ignore DS148264
 
-        let mut rng = thread_rng();
-        let nbr: u32 = rng.gen_range($a as u32..$b as u32);
+        let mut rng = fastrand::Rng::new(); //DevSkim: ignore DS148264
+        let nbr: u32 = rng.u32($a as u32..$b as u32); //DevSkim: ignore DS148264
 
         nbr
     }};

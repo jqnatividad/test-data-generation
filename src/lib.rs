@@ -135,9 +135,9 @@ extern crate log;
 extern crate serde_derive;
 extern crate crossbeam;
 extern crate csv;
+extern crate fastrand; //DevSkim: ignore DS148264
 extern crate indexmap;
 extern crate levenshtein;
-extern crate rand;
 extern crate regex;
 extern crate serde;
 extern crate serde_json;
