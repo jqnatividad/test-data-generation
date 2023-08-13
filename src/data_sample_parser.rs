@@ -109,7 +109,7 @@ pub struct DataSampleParser {
     /// Configs object that define the configuration settings
     cfg: Option<Configs>,
     /// List of Profiles objects identified by a unique profile name LinkedHashMap<String, Profile>
-    #[serde(with = "indexmap::serde_seq")]
+    #[serde(with = "indexmap::map::serde_seq")]
     profiles: ProfilesMap,
 }
 
