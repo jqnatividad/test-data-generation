@@ -67,20 +67,28 @@ pub trait CsvManipulator {
     /// }
     /// ```
     fn read_as_columns(mut rdr: Reader<&[u8]>) -> Vec<Vec<String>> {
-        let mut columns = Vec::new();
+        let headers = rdr.headers().unwrap().clone();
+        let num_columns = headers.len();
+        let mut columns = Vec::with_capacity(num_columns);
+        let mut record = csv::StringRecord::new();
+        let mut columns_len;
+        let mut record_len;
+        let mut num_new_columns;
+        let mut new_columns;
+        let mut field;
 
-        for result in rdr.records() {
-            let record = result.expect("a CSV record");
-
-            if columns.len() < record.len() {
-                for _i in 0..record.len() {
-                    columns.push(Vec::new());
-                }
+        while rdr.read_record(&mut record).unwrap() {
+            columns_len = columns.len();
+            record_len = record.len();
+            if columns_len < record_len {
+                num_new_columns = record_len - columns_len;
+                new_columns = vec![Vec::new(); num_new_columns];
+                columns.extend(new_columns);
             }
 
             for c in 0..record.len() {
-                let field = record.get(c).unwrap().to_string();
-                columns[c].push(field);
+                field = record.get(c).unwrap();
+                columns[c].push(field.to_owned());
             }
         }
 
