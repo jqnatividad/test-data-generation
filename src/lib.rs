@@ -566,7 +566,7 @@ impl Profile {
         self.size_ranks = sizes
             .iter()
             .scan((0_u32, 0.00_f64), |state, &(&k, &v)| {
-                *state = (k, state.1 + &v);
+                *state = (k, state.1 + v);
                 Some(*state)
             })
             .collect::<Vec<(_, _)>>();
@@ -610,7 +610,7 @@ impl Profile {
         let pattern = self
             .pattern_ranks
             .iter()
-            .find(|x| &x.1 >= &s)
+            .find(|x| x.1 >= s)
             .unwrap()
             .clone();
 
