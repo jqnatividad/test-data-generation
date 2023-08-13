@@ -379,13 +379,13 @@ impl PatternDefinition {
         let mut fact = Fact::new(c, pp, sw, ew, idx);
 
         // only if there is a next key
-        if nk.is_some() {
-            let _ = &fact.set_next_key(nk.unwrap());
+        if let Some(nk) = nk {
+            let _ = &fact.set_next_key(nk);
         }
 
         // only if there is a prior key
-        if pk.is_some() {
-            let _ = &fact.set_prior_key(pk.unwrap());
+        if let Some(pk) = pk {
+            let _ = &fact.set_prior_key(pk);
         }
 
         fact
