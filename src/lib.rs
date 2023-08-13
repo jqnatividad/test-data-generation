@@ -365,7 +365,7 @@ impl Profile {
     /// }
     /// ```
     pub fn from_serialized(serialized: &str) -> Profile {
-        serde_json::from_str(&serialized).unwrap()
+        serde_json::from_str(serialized).unwrap()
     }
 
     /// This function converts an data point (&str) to a pattern and adds it to the profile
@@ -766,11 +766,11 @@ impl Profile {
 
             for control in control_list.iter().clone() {
                 debug!("Comparing {} with {} ...", &control, &experiment);
-                percent_similarity.push(self.realistic_test(&control, &experiment));
+                percent_similarity.push(self.realistic_test(control, &experiment));
             }
 
             let percent =
-                percent_similarity.iter().sum::<f64>() as f64 / percent_similarity.len() as f64;
+                percent_similarity.iter().sum::<f64>() / percent_similarity.len() as f64;
             debug!("Percent similarity is {} ...", &percent);
 
             if percent >= 80_f64 {

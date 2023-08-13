@@ -226,12 +226,12 @@ impl DataSampleParser {
         match prfils.is_array() {
             true => {
                 debug!("Version 0.3.0 detected. Using latest version");
-                return serde_json::from_str(&serialized).unwrap();
+                serde_json::from_str(&serialized).unwrap()
             }
             false => {
                 info!("Prior version 0.2.1 detected. Trying to upgrade to latest version");
 
-                return Self::upgrade_to_latest_version(serialized);
+                Self::upgrade_to_latest_version(serialized)
             }
         }
     }
@@ -277,7 +277,7 @@ impl DataSampleParser {
 
         rtn.issues = issues;
         rtn.profiles = pm;
-        return rtn;
+        rtn
     }
 
     #[inline]
@@ -557,10 +557,10 @@ impl DataSampleParser {
     fn else_default_delimiter(delimiter: Option<u8>) -> u8 {
         match delimiter {
             Some(d) => {
-                return d;
+                d
             }
             None => {
-                return DELIMITER;
+                DELIMITER
             }
         }
     }

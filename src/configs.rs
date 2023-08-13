@@ -78,7 +78,7 @@ impl Configs {
     /// }
     /// ```
     pub fn from_serialized(serialized: &str) -> Configs {
-        serde_json::from_str(&serialized).unwrap()
+        serde_json::from_str(serialized).unwrap()
     }
 
     /// Loads the configuration file using the path that was provided during calling a new Configs object
@@ -121,15 +121,13 @@ impl Configs {
     /// }
     /// ```
     pub fn load_config_file(&mut self) {
-        let mut f = File::open(&self.file).expect(&format!(
-            "Error: Configuration file not found at {}",
-            &self.file.to_string()
-        ));
+        let mut f = File::open(&self.file).unwrap_or_else(|_| panic!("Error: Configuration file not found at {}",
+            &self.file.to_string()));
         let mut contents = String::new();
         f.read_to_string(&mut contents)
             .expect("Something went wrong reading file");
         let _cfg_yaml =
-            &YamlLoader::load_from_str(&*contents).expect("failed to load YAML file")[0];
+            &YamlLoader::load_from_str(&contents).expect("failed to load YAML file")[0];
         //println!("{:?}", cfg);
     }
 

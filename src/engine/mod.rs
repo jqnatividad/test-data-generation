@@ -149,7 +149,7 @@ impl Fact {
     /// ```
     #[inline]
     pub fn from_serialized(serialized: &str) -> Fact {
-        serde_json::from_str(&serialized).unwrap()
+        serde_json::from_str(serialized).unwrap()
     }
 
     /// This function converts the Fact to a serialize JSON string.
@@ -332,7 +332,7 @@ impl PatternDefinition {
             //let fact = self.factualize(&entity, i as u32);
             let idx: u32 = i as u32;
             let fact = self.factualize(entity, idx);
-            pttrn.push_str(&*fact.pattern_placeholder.to_string());
+            pttrn.push_str(&fact.pattern_placeholder.to_string());
             facts.push(fact);
         }
 
@@ -520,7 +520,7 @@ pub trait Engine {
                 Err(e) => {
                     return Err(format!(
                     "Error: Couldn't apply the Pattern and Facts to the Profile. Error Message: {}",
-                    e.to_string()
+                    e
                 ))
                 }
             }
