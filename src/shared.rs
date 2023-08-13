@@ -16,7 +16,7 @@ use std::mem;
 ///
 /// fn main() {
 ///     let my_string = String::from("Hello World");
-///		let static_str =  shared::string_to_static_str(my_string);
+///        let static_str =  shared::string_to_static_str(my_string);
 /// }
 /// ```
 pub fn string_to_static_str(s: String) -> &'static str {

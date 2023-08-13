@@ -5,14 +5,14 @@ use clap::{Arg, App, ArgMatches};
 
 
 pub struct Params<'a>{
-	opts: ArgMatches<'a>,
+    opts: ArgMatches<'a>,
 }
 
 impl<'a> Params<'a> {
-	//constructor
-	pub fn new() -> Params<'a> {
-		Params{
-			opts: App::new("Test Data Generation")
+    //constructor
+    pub fn new() -> Params<'a> {
+        Params{
+            opts: App::new("Test Data Generation")
                           .version("1.0")
                           .author("dsietz")
                           .about("Made just for you!")
@@ -44,25 +44,25 @@ impl<'a> Params<'a> {
                                .default_value("off")
                                .help("explain what is being done (options: off, info, debug)"))
                           .get_matches(),
-		}
-	}
-	
-	// get() functions
-	pub fn get_config_file(&self) -> &str{
-		&self.opts.value_of("config").unwrap()
-	}
-	
-	pub fn get_log_file(&self) -> &str{
-		&self.opts.value_of("log").unwrap()
-	}
-	
-	pub fn get_tool(&self) -> &str{
-		&self.opts.value_of("tool").unwrap()
-	}
-	
-	pub fn get_verbose(&self) -> &str{
-		&self.opts.value_of("verbose").unwrap()
-	}
-	
-	//set() functions
+        }
+    }
+    
+    // get() functions
+    pub fn get_config_file(&self) -> &str{
+        &self.opts.value_of("config").unwrap()
+    }
+    
+    pub fn get_log_file(&self) -> &str{
+        &self.opts.value_of("log").unwrap()
+    }
+    
+    pub fn get_tool(&self) -> &str{
+        &self.opts.value_of("tool").unwrap()
+    }
+    
+    pub fn get_verbose(&self) -> &str{
+        &self.opts.value_of("verbose").unwrap()
+    }
+    
+    //set() functions
 }

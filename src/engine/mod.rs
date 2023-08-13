@@ -13,7 +13,7 @@
 //!
 //! fn main() {
 //!     //fact created for the character 'r' in the string "word"
-//!    	let mut fact =  Fact::new('r','c',0,0,2);
+//!        let mut fact =  Fact::new('r','c',0,0,2);
 //!
 //!     // set the char that appears after the 'r'
 //!     fact.set_next_key('d');
@@ -45,7 +45,7 @@
 //! use test_data_generation::engine::PatternDefinition;
 //!
 //! fn main() {
-//! 	let pttrn_def = PatternDefinition::new();
+//!     let pttrn_def = PatternDefinition::new();
 //!     println!("Upper case vowel symbol: {:?}", pttrn_def.get(&"VowelUpper".to_string()));
 //! }
 //! ```
@@ -108,8 +108,8 @@ impl Fact {
     /// use test_data_generation::engine::Fact;
     ///
     /// fn main() {
-    /// 	//fact created for the character 'r' in the string "word"
-    ///    	let mut fact =  Fact::new('r','c',0,0,2);
+    ///     //fact created for the character 'r' in the string "word"
+    ///        let mut fact =  Fact::new('r','c',0,0,2);
     /// }
     /// ```
     #[inline]
@@ -139,12 +139,12 @@ impl Fact {
     /// use test_data_generation::engine::Fact;
     ///
     /// fn main() {
-    ///		let serialized = "{\"key\":\"r\",\"prior_key\":null,\"next_key\":null,\"pattern_placeholder\":\"c\",\"starts_with\":0,\"ends_with\":0,\"index_offset\":2}";
-    ///		let mut fact = Fact::from_serialized(&serialized);
+    ///        let serialized = "{\"key\":\"r\",\"prior_key\":null,\"next_key\":null,\"pattern_placeholder\":\"c\",\"starts_with\":0,\"ends_with\":0,\"index_offset\":2}";
+    ///        let mut fact = Fact::from_serialized(&serialized);
     ///     fact.set_prior_key('a');
-    ///		fact.set_next_key('e');
+    ///        fact.set_next_key('e');
     ///
-    ///		assert_eq!(fact.pattern_placeholder, 'c');
+    ///        assert_eq!(fact.pattern_placeholder, 'c');
     /// }
     /// ```
     #[inline]
@@ -162,8 +162,8 @@ impl Fact {
     /// use test_data_generation::engine::Fact;
     ///
     /// fn main() {
-    /// 	//fact created for the character 'r' in the string "word"
-    ///    	let mut fact =  Fact::new('r','c',0,0,2);
+    ///     //fact created for the character 'r' in the string "word"
+    ///        let mut fact =  Fact::new('r','c',0,0,2);
     ///
     ///     println!("{}", fact.serialize());
     ///     // {"key":"r","prior_key":null,"next_key":null,"pattern_placeholder":"c","starts_with":0,"ends_with":0,"index_offset":2}
@@ -188,8 +188,8 @@ impl Fact {
     /// use test_data_generation::engine::Fact;
     ///
     /// fn main() {
-    /// 	//fact created for the character 'r' in the string "word"
-    ///    	let mut fact =  Fact::new('r','c',0,0,2);
+    ///     //fact created for the character 'r' in the string "word"
+    ///        let mut fact =  Fact::new('r','c',0,0,2);
     ///     fact.set_next_key('d');
     /// }
     ///
@@ -212,8 +212,8 @@ impl Fact {
     /// use test_data_generation::engine::Fact;
     ///
     /// fn main() {
-    /// 	//fact created for the character 'r' in the string "word"
-    ///    	let mut fact =  Fact::new('r','c',0,0,2);
+    ///     //fact created for the character 'r' in the string "word"
+    ///        let mut fact =  Fact::new('r','c',0,0,2);
     ///     fact.set_prior_key('o');
     /// }
     ///
@@ -272,7 +272,7 @@ impl PatternDefinition {
     /// use test_data_generation::engine::PatternDefinition;
     ///
     /// fn main() {
-    /// 	let pttrn_def = PatternDefinition::new();
+    ///     let pttrn_def = PatternDefinition::new();
     /// }
     /// ```
     pub fn new() -> PatternDefinition {
@@ -309,7 +309,7 @@ impl PatternDefinition {
     /// use test_data_generation::engine::PatternDefinition;
     ///
     /// fn main() {
-    ///		let mut pttrn_def = PatternDefinition::new();
+    ///        let mut pttrn_def = PatternDefinition::new();
     ///     //async {
     ///         let rslt = pttrn_def.analyze("Hello World");
     ///         assert_eq!(rslt.0, "CvccvSCvccc");
@@ -354,8 +354,8 @@ impl PatternDefinition {
     /// use test_data_generation::engine::PatternDefinition;
     ///
     /// fn main() {
-    ///		let mut pttrn_def = PatternDefinition::new();
-    ///		let fact = pttrn_def.factualize("Word",0);
+    ///        let mut pttrn_def = PatternDefinition::new();
+    ///        let fact = pttrn_def.factualize("Word",0);
     ///     // will return a Fact that represents the char `W`
     /// }
     /// ```
@@ -401,7 +401,7 @@ impl PatternDefinition {
     /// use test_data_generation::engine::PatternDefinition;
     ///
     /// fn main() {
-    /// 	let pttrn_def = PatternDefinition::new();
+    ///     let pttrn_def = PatternDefinition::new();
     ///     println!("Upper case vowel symbol: {:?}", pttrn_def.get(&"VowelUpper".to_string()));
     /// }
     /// ```
@@ -420,8 +420,8 @@ impl PatternDefinition {
     /// use test_data_generation::engine::PatternDefinition;
     ///
     /// fn main() {
-    /// 	let pttrn_def = PatternDefinition::new();
-    /// 	println!("The pattern symbol for 'A' is {:?}", pttrn_def.symbolize_char('A'));
+    ///     let pttrn_def = PatternDefinition::new();
+    ///     println!("The pattern symbol for 'A' is {:?}", pttrn_def.symbolize_char('A'));
     ///     // The pattern symbol for 'A' is V
     /// }
     /// ```

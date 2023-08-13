@@ -12,12 +12,12 @@
 //! use test_data_generation::data_sample_parser::DataSampleParser;
 //!
 //! fn main() {
-//!		// initalize a new DataSampelParser
-//!		let dsp = DataSampleParser::new();
+//!        // initalize a new DataSampelParser
+//!        let dsp = DataSampleParser::new();
 //!
-//!		// generate some test data using the demo functions
-//!		println!("generate date:{}", dsp.demo_date());
-//!		println!("generate person:{}", dsp.demo_person_name());
+//!        // generate some test data using the demo functions
+//!        println!("generate date:{}", dsp.demo_date());
+//!        println!("generate person:{}", dsp.demo_person_name());
 //! }
 //! ```
 //!
@@ -33,8 +33,8 @@
 //! use test_data_generation::data_sample_parser::DataSampleParser;
 //!
 //! fn main() {
-//! 	// analyze the dataset
-//!		let mut dsp =  DataSampleParser::new();
+//!     // analyze the dataset
+//!        let mut dsp =  DataSampleParser::new();
 //!
 //!     assert_eq!(dsp.save(&String::from("./tests/samples/empty-dsp")).unwrap(), true);
 //! }
@@ -52,9 +52,9 @@
 //! use test_data_generation::data_sample_parser::DataSampleParser;
 //!
 //! fn main() {
-//!		let mut dsp = DataSampleParser::from_file(&String::from("./tests/samples/sample-00-dsp"));
+//!        let mut dsp = DataSampleParser::from_file(&String::from("./tests/samples/sample-00-dsp"));
 //!
-//!		assert_eq!(dsp.generate_record()[0], "OK".to_string());
+//!        assert_eq!(dsp.generate_record()[0], "OK".to_string());
 //! }
 //! ```
 //!
@@ -69,8 +69,8 @@
 //!     let mut dsp =  DataSampleParser::new();
 //!
 //!     // Using the default delimiter (comma)
-//!    	dsp.analyze_csv_file(&String::from("./tests/samples/sample-01.csv"), None).unwrap();
-//!    	dsp.generate_csv(100, &String::from("./tests/samples/generated-01.csv"), None).unwrap();
+//!        dsp.analyze_csv_file(&String::from("./tests/samples/sample-01.csv"), None).unwrap();
+//!        dsp.generate_csv(100, &String::from("./tests/samples/generated-01.csv"), None).unwrap();
 //! }
 //! ```
 //!
@@ -127,8 +127,8 @@ impl DataSampleParser {
     /// use test_data_generation::data_sample_parser::DataSampleParser;
     ///
     /// fn main() {
-    ///		// initalize a new DataSampelParser
-    ///		let dsp = DataSampleParser::new();
+    ///        // initalize a new DataSampelParser
+    ///        let dsp = DataSampleParser::new();
     /// }
     /// ```
     pub fn new() -> DataSampleParser {
@@ -153,9 +153,9 @@ impl DataSampleParser {
     /// use test_data_generation::data_sample_parser::DataSampleParser;
     ///
     /// fn main() {
-    ///		// initalize a new DataSampelParser
-    ///	    // param: the path to the configuration  file
-    ///		let dsp = DataSampleParser::new_with(&String::from("./config/tdg.yaml"));
+    ///        // initalize a new DataSampelParser
+    ///        // param: the path to the configuration  file
+    ///        let dsp = DataSampleParser::new_with(&String::from("./config/tdg.yaml"));
     /// }
     /// ```
     pub fn new_with(path: &String) -> DataSampleParser {
@@ -180,9 +180,9 @@ impl DataSampleParser {
     /// use test_data_generation::data_sample_parser::DataSampleParser;
     ///
     /// fn main() {
-    ///		let mut dsp = DataSampleParser::from_file(&String::from("./tests/samples/sample-00-dsp"));
+    ///        let mut dsp = DataSampleParser::from_file(&String::from("./tests/samples/sample-00-dsp"));
     ///
-    ///		assert_eq!(dsp.generate_record()[0], "OK".to_string());
+    ///        assert_eq!(dsp.generate_record()[0], "OK".to_string());
     /// }
     /// ```
     pub fn from_file(path: &String) -> DataSampleParser {
@@ -363,18 +363,18 @@ impl DataSampleParser {
     /// use test_data_generation::data_sample_parser::DataSampleParser;
     ///
     /// fn main() {
-    ///		// initalize a new DataSampelParser
-    ///		let mut dsp = DataSampleParser::new();
-    ///		let mut data = String::from("");
-    ///		data.push_str("\"firstname\",\"lastname\"\n");
-    ///		data.push_str("\"Aaron\",\"Aaberg\"\n");
-    ///		data.push_str("\"Aaron\",\"Aaby\"\n");
-    ///		data.push_str("\"Abbey\",\"Aadland\"\n");
-    ///		data.push_str("\"Abbie\",\"Aagaard\"\n");
-    ///		data.push_str("\"Abby\",\"Aakre\"");
+    ///        // initalize a new DataSampelParser
+    ///        let mut dsp = DataSampleParser::new();
+    ///        let mut data = String::from("");
+    ///        data.push_str("\"firstname\",\"lastname\"\n");
+    ///        data.push_str("\"Aaron\",\"Aaberg\"\n");
+    ///        data.push_str("\"Aaron\",\"Aaby\"\n");
+    ///        data.push_str("\"Abbey\",\"Aadland\"\n");
+    ///        data.push_str("\"Abbie\",\"Aagaard\"\n");
+    ///        data.push_str("\"Abby\",\"Aakre\"");
     ///
     ///     // Use the default delimiter (comma)
-    /// 	assert_eq!(dsp.analyze_csv_data(&data, None).unwrap(),1);
+    ///     assert_eq!(dsp.analyze_csv_data(&data, None).unwrap(),1);
     /// }
     /// ```
     pub fn analyze_csv_data(
@@ -445,11 +445,11 @@ impl DataSampleParser {
     /// use test_data_generation::data_sample_parser::DataSampleParser;
     ///
     /// fn main() {
-    ///		// initalize a new DataSampelParser
-    ///		let mut dsp = DataSampleParser::new();
+    ///        // initalize a new DataSampelParser
+    ///        let mut dsp = DataSampleParser::new();
     ///
     ///     // Use the default delimiter (comma)
-    /// 	assert_eq!(dsp.analyze_csv_file(&String::from("./tests/samples/sample-01.csv"), None).unwrap(),1);
+    ///     assert_eq!(dsp.analyze_csv_file(&String::from("./tests/samples/sample-01.csv"), None).unwrap(),1);
     /// }
     /// ```
     pub fn analyze_csv_file(
@@ -485,11 +485,11 @@ impl DataSampleParser {
     /// use test_data_generation::data_sample_parser::DataSampleParser;
     ///
     /// fn main() {
-    ///		// initalize a new DataSampelParser
-    ///		let dsp = DataSampleParser::new();
+    ///        // initalize a new DataSampelParser
+    ///        let dsp = DataSampleParser::new();
     ///
-    ///		// generate some test data using the demo functions
-    ///		println!("generate date:{}", dsp.demo_date());
+    ///        // generate some test data using the demo functions
+    ///        println!("generate date:{}", dsp.demo_date());
     /// }
     /// ```
     pub fn demo_date(&self) -> String {
@@ -533,11 +533,11 @@ impl DataSampleParser {
     /// use test_data_generation::data_sample_parser::DataSampleParser;
     ///
     /// fn main() {
-    ///		// initalize a new DataSampelParser
-    ///		let dsp = DataSampleParser::new();
+    ///        // initalize a new DataSampelParser
+    ///        let dsp = DataSampleParser::new();
     ///
-    ///		// generate some test data using the demo functions
-    ///		println!("generate date:{}", dsp.demo_person_name());
+    ///        // generate some test data using the demo functions
+    ///        println!("generate date:{}", dsp.demo_person_name());
     /// }
     pub fn demo_person_name(&self) -> String {
         let mut profil = Profile::new();
@@ -571,13 +571,13 @@ impl DataSampleParser {
     /// use test_data_generation::data_sample_parser::DataSampleParser;
     ///
     /// fn main() {
-    ///		// initalize a new DataSampelParser
-    ///		let mut dsp = DataSampleParser::new();
+    ///        // initalize a new DataSampelParser
+    ///        let mut dsp = DataSampleParser::new();
     ///
-    /// 	dsp.analyze_csv_file(&String::from("./tests/samples/sample-01.csv"), None).unwrap();
+    ///     dsp.analyze_csv_file(&String::from("./tests/samples/sample-01.csv"), None).unwrap();
     ///     let headers = dsp.extract_headers();
     ///
-    ///		assert_eq!(headers.len(), 2);
+    ///        assert_eq!(headers.len(), 2);
     /// }
     pub fn extract_headers(&mut self) -> Vec<String> {
         let mut headers = vec![];
@@ -603,10 +603,10 @@ impl DataSampleParser {
     /// use test_data_generation::data_sample_parser::DataSampleParser;
     ///
     /// fn main() {
-    ///		// initalize a new DataSampelParser
-    ///		let mut dsp = DataSampleParser::new();
+    ///        // initalize a new DataSampelParser
+    ///        let mut dsp = DataSampleParser::new();
     ///
-    /// 	dsp.analyze_csv_file(&String::from("./tests/samples/sample-01.csv"), None).unwrap();
+    ///     dsp.analyze_csv_file(&String::from("./tests/samples/sample-01.csv"), None).unwrap();
     ///     println!("Generated data for first name {}",dsp.generate_by_field_name("firstname".to_string()));
     /// }
     /// ```
@@ -628,10 +628,10 @@ impl DataSampleParser {
     /// use test_data_generation::data_sample_parser::DataSampleParser;
     ///
     /// fn main() {
-    ///		// initalize a new DataSampelParser
-    ///		let mut dsp = DataSampleParser::new();
+    ///        // initalize a new DataSampelParser
+    ///        let mut dsp = DataSampleParser::new();
     ///
-    /// 	dsp.analyze_csv_file(&String::from("./tests/samples/sample-01.csv"), None).unwrap();
+    ///     dsp.analyze_csv_file(&String::from("./tests/samples/sample-01.csv"), None).unwrap();
     ///     println!("Generated data record: {:?}",dsp.generate_record());
     /// }
     /// ```
@@ -668,10 +668,10 @@ impl DataSampleParser {
     /// use test_data_generation::data_sample_parser::DataSampleParser;
     ///
     /// fn main() {
-    ///		// initalize a new DataSampelParser
-    ///		let mut dsp = DataSampleParser::new();
+    ///        // initalize a new DataSampelParser
+    ///        let mut dsp = DataSampleParser::new();
     ///
-    /// 	dsp.analyze_csv_file(&String::from("./tests/samples/sample-01.csv"), None).unwrap();
+    ///     dsp.analyze_csv_file(&String::from("./tests/samples/sample-01.csv"), None).unwrap();
     ///     dsp.generate_csv(100, &String::from("./tests/samples/generated-01.csv"), None).unwrap();
     /// }
     /// ```
@@ -728,8 +728,8 @@ impl DataSampleParser {
     /// use test_data_generation::data_sample_parser::DataSampleParser;
     ///
     /// fn main() {
-    /// 	// analyze the dataset
-    ///		let mut dsp =  DataSampleParser::new();
+    ///     // analyze the dataset
+    ///        let mut dsp =  DataSampleParser::new();
     ///
     ///     assert_eq!(dsp.levenshtein_distance(&"kitten".to_string(), &"sitting".to_string()), 3 as usize);
     /// }
@@ -754,8 +754,8 @@ impl DataSampleParser {
     /// use test_data_generation::data_sample_parser::DataSampleParser;
     ///
     /// fn main() {
-    /// 	// analyze the dataset
-    ///		let mut dsp =  DataSampleParser::new();
+    ///     // analyze the dataset
+    ///        let mut dsp =  DataSampleParser::new();
     ///
     ///     assert_eq!(dsp.realistic_test(&"kitten".to_string(), &"sitting".to_string()), 76.92307692307692 as f64);
     /// }
@@ -778,12 +778,12 @@ impl DataSampleParser {
     /// use test_data_generation::data_sample_parser::DataSampleParser;
     ///
     /// fn main() {
-    ///		// initalize a new DataSampelParser
-    ///	    // param: the path to the configuration file is wrong
-    ///		let dsp = DataSampleParser::new_with(&String::from("./target/debug/config/tdg.yaml"));
+    ///        // initalize a new DataSampelParser
+    ///        // param: the path to the configuration file is wrong
+    ///        let dsp = DataSampleParser::new_with(&String::from("./target/debug/config/tdg.yaml"));
     ///
-    ///		// generate some test data using the demo functions
-    ///		assert_eq!(dsp.running_with_issues(), &false);
+    ///        // generate some test data using the demo functions
+    ///        assert_eq!(dsp.running_with_issues(), &false);
     /// }
     pub fn running_with_issues(&self) -> &bool {
         &self.issues
@@ -808,8 +808,8 @@ impl DataSampleParser {
     /// use test_data_generation::data_sample_parser::DataSampleParser;
     ///
     /// fn main() {
-    /// 	// analyze the dataset
-    ///		let mut dsp =  DataSampleParser::new();
+    ///     // analyze the dataset
+    ///        let mut dsp =  DataSampleParser::new();
     ///     dsp.analyze_csv_file(&String::from("./tests/samples/sample-00.csv"), None).unwrap();
     ///
     ///     assert_eq!(dsp.save(&String::from("./tests/samples/sample-00-dsp")).unwrap(), true);

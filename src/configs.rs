@@ -11,12 +11,12 @@
 //! use test_data_generation::configs::Configs;
 //!
 //! fn main() {
-//!		// initalize a new Configs
-//!		let mut cfg = Configs::new(&String::from("./tests/config/tdg.yaml"));
-//!		cfg.load_config_file();
+//!        // initalize a new Configs
+//!        let mut cfg = Configs::new(&String::from("./tests/config/tdg.yaml"));
+//!        cfg.load_config_file();
 //!
-//!		// verify the configuration file has been loaded
-//!		println!("{:?}", cfg);
+//!        // verify the configuration file has been loaded
+//!        println!("{:?}", cfg);
 //! }
 //! ```
 
@@ -48,12 +48,12 @@ impl Configs {
     /// use test_data_generation::configs::Configs;
     ///
     /// fn main() {
-    ///		// initalize a new Configs
-    ///		let mut cfg = Configs::new(&String::from("./tests/config/tdg.yaml"));
-    ///		cfg.load_config_file();
+    ///        // initalize a new Configs
+    ///        let mut cfg = Configs::new(&String::from("./tests/config/tdg.yaml"));
+    ///        cfg.load_config_file();
     ///
-    ///		// verify the configuration file has been loaded
-    ///		println!("{:?}", cfg);
+    ///        // verify the configuration file has been loaded
+    ///        println!("{:?}", cfg);
     /// }
     /// ```
     pub fn new(path: &String) -> Configs {
@@ -71,10 +71,10 @@ impl Configs {
     /// use test_data_generation::configs::Configs;
     ///
     /// fn main() {
-    ///		let serialized = "{\"file\":\"./tests/config/tdg.yaml\"}";
-    ///		let mut cfg = Configs::from_serialized(&serialized);
+    ///        let serialized = "{\"file\":\"./tests/config/tdg.yaml\"}";
+    ///        let mut cfg = Configs::from_serialized(&serialized);
     ///
-    ///		assert_eq!(cfg.get_config_file_path(), "./tests/config/tdg.yaml");
+    ///        assert_eq!(cfg.get_config_file_path(), "./tests/config/tdg.yaml");
     /// }
     /// ```
     pub fn from_serialized(serialized: &str) -> Configs {
@@ -91,11 +91,11 @@ impl Configs {
     /// use test_data_generation::configs::Configs;
     ///
     /// fn main() {
-    ///		// initalize a new Configs
-    ///		let mut cfg = Configs::new(&String::from("./tests/config/tdg.yaml"));
+    ///        // initalize a new Configs
+    ///        let mut cfg = Configs::new(&String::from("./tests/config/tdg.yaml"));
     ///
-    ///		// verify the configuration file path was set
-    ///		println!("The configuration fiel is located at {}", cfg.get_config_file_path());
+    ///        // verify the configuration file path was set
+    ///        println!("The configuration fiel is located at {}", cfg.get_config_file_path());
     /// }
     /// ```
     pub fn get_config_file_path(&self) -> &str {
@@ -112,12 +112,12 @@ impl Configs {
     /// use test_data_generation::configs::Configs;
     ///
     /// fn main() {
-    ///		// initalize a new Configs
-    ///		let mut cfg = Configs::new(&String::from("./tests/config/tdg.yaml"));
-    ///		cfg.load_config_file();
+    ///        // initalize a new Configs
+    ///        let mut cfg = Configs::new(&String::from("./tests/config/tdg.yaml"));
+    ///        cfg.load_config_file();
     ///
-    ///		// verify the configuration file has been loaded
-    ///		println!("{:?}", cfg);
+    ///        // verify the configuration file has been loaded
+    ///        println!("{:?}", cfg);
     /// }
     /// ```
     pub fn load_config_file(&mut self) {
@@ -144,9 +144,9 @@ impl Configs {
     /// use test_data_generation::configs::Configs;
     ///
     /// fn main() {
-    /// 	//create a Configs object from a configuration file
-    ///    	let mut cfg =  Configs::new(&String::from("./tests/config/tdg.yaml"));
-    ///		cfg.load_config_file();
+    ///     //create a Configs object from a configuration file
+    ///        let mut cfg =  Configs::new(&String::from("./tests/config/tdg.yaml"));
+    ///        cfg.load_config_file();
     ///
     ///     println!("{}", cfg.serialize());
     ///     // {"key":"r","prior_key":null,"next_key":null,"pattern_placeholder":"c","starts_with":0,"ends_with":0,"index_offset":2}

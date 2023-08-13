@@ -17,50 +17,50 @@
 //!
 //! fn main() {
 //!     // analyze the dataset
-//! 	let mut data_profile =  Profile::new();
+//!     let mut data_profile =  Profile::new();
 //!
 //!     // analyze the dataset
-//! 	data_profile.analyze("Smith, John");
-//! 	data_profile.analyze("Doe, John");
-//! 	data_profile.analyze("Dale, Danny");
-//! 	data_profile.analyze("Rickets, Ronney");
+//!     data_profile.analyze("Smith, John");
+//!     data_profile.analyze("Doe, John");
+//!     data_profile.analyze("Dale, Danny");
+//!     data_profile.analyze("Rickets, Ronney");
 //!
 //!     // confirm 4 data samples were analyzed
-//!    	assert_eq!(data_profile.patterns.len(), 4);
+//!        assert_eq!(data_profile.patterns.len(), 4);
 //!
 //!     // prepare the generator
 //!     data_profile.pre_generate();
 //!
 //!     // generate some data
-//!    	println!("The generated name is {:?}", data_profile.generate());
+//!        println!("The generated name is {:?}", data_profile.generate());
 //! }
 //! ```
 //!
 //! You can also export (archive as JSON file) the profile for later use.
 //! This allows for the algorithm to be retrieved without having to store the actual data that was analyzed.
 //!
-//!	```
+//!    ```
 //! extern crate test_data_generation;
 //!
 //! use test_data_generation::Profile;
 //!
 //! fn main() {
-//!		//create a profile and analyze some data
-//!		let mut old_profile =  Profile::new();
-//!		old_profile.analyze("Smith, John");
-//!		old_profile.analyze("O'Brian, Henny");
-//!		old_profile.analyze("Dale, Danny");
-//!		old_profile.analyze("Rickets, Ronney");
+//!        //create a profile and analyze some data
+//!        let mut old_profile =  Profile::new();
+//!        old_profile.analyze("Smith, John");
+//!        old_profile.analyze("O'Brian, Henny");
+//!        old_profile.analyze("Dale, Danny");
+//!        old_profile.analyze("Rickets, Ronney");
 //!
-//!		old_profile.pre_generate();
+//!        old_profile.pre_generate();
 //!
-//!		//save the profile for later
-//!		assert_eq!(old_profile.save("./tests/samples/sample-00-profile").unwrap(), true);
+//!        //save the profile for later
+//!        assert_eq!(old_profile.save("./tests/samples/sample-00-profile").unwrap(), true);
 //!
-//!		// create a new profile from the archive json file
-//!		let mut new_profile = Profile::from_file("./tests/samples/sample-00-profile");
+//!        // create a new profile from the archive json file
+//!        let mut new_profile = Profile::from_file("./tests/samples/sample-00-profile");
 //!
-//!		// generate some data. NOTE that the pre-generate() was already called prior to saving
+//!        // generate some data. NOTE that the pre-generate() was already called prior to saving
 //!     println!("The generated name is {:?}", new_profile.generate());
 //! }
 //! ```
@@ -106,7 +106,7 @@
 //! fn main() {
 //!     let mut dsp = DataSampleParser::from_file(&String::from("./tests/samples/sample-01-dsp"));
 //!
-//! 	println!("Sample data is {:?}", dsp.generate_record()[0]);
+//!     println!("Sample data is {:?}", dsp.generate_record()[0]);
 //! }
 //! ```
 //!
@@ -121,8 +121,8 @@
 //!     let mut dsp =  DataSampleParser::new();
 //!
 //!     // Use the default delimiter (comma)
-//!    	dsp.analyze_csv_file(&String::from("./tests/samples/sample-01.csv"), None).unwrap();
-//!    	dsp.generate_csv(100, &String::from("./tests/samples/generated-01.csv"), None).unwrap();
+//!        dsp.analyze_csv_file(&String::from("./tests/samples/sample-01.csv"), None).unwrap();
+//!        dsp.generate_csv(100, &String::from("./tests/samples/generated-01.csv"), None).unwrap();
 //! }
 //! ```
 #![crate_type = "lib"]
@@ -198,7 +198,7 @@ impl Profile {
     /// use test_data_generation::Profile;
     ///
     /// fn main() {
-    /// 	let placeholder = Profile::new();
+    ///     let placeholder = Profile::new();
     /// }
     /// ```
     pub fn new() -> Profile {
@@ -228,7 +228,7 @@ impl Profile {
     /// use test_data_generation::Profile;
     ///
     /// fn main() {
-    /// 	let placeholder = Profile::new_with_id("12345".to_string());
+    ///     let placeholder = Profile::new_with_id("12345".to_string());
     /// }
     /// ```
     pub fn new_with_id(id: String) -> Profile {
@@ -267,7 +267,7 @@ impl Profile {
     ///
     /// fn main() {
     ///     let processors: u8 = 10;
-    /// 	let placeholder = Profile::new_with_processors(processors);
+    ///     let placeholder = Profile::new_with_processors(processors);
     /// }
     /// ```
     pub fn new_with_processors(p: u8) -> Profile {
@@ -301,7 +301,7 @@ impl Profile {
     /// use test_data_generation::Profile;
     ///
     /// fn main() {
-    ///		let mut profile = Profile::from_file("./tests/samples/sample-00-profile");
+    ///        let mut profile = Profile::from_file("./tests/samples/sample-00-profile");
     ///
     ///     profile.pre_generate();
     ///
@@ -356,8 +356,8 @@ impl Profile {
     /// use test_data_generation::Profile;
     ///
     /// fn main() {
-    ///		let serialized = "{\"patterns\":{\"VC\":1},\"pattern_total\":1,\"pattern_keys\":[\"VC\"],\"pattern_vals\":[1],\"pattern_percentages\":[],\"pattern_ranks\":[],\"sizes\":{\"2\":1},\"size_total\":1,\"size_ranks\":[],\"processors\":4,\"facts\":[[{\"key\":\"O\",\"prior_key\":null,\"next_key\":\"K\",\"pattern_placeholder\":\"V\",\"starts_with\":1,\"ends_with\":0,\"index_offset\":0}],[{\"key\":\"K\",\"prior_key\":\"O\",\"next_key\":null,\"pattern_placeholder\":\"C\",\"starts_with\":0,\"ends_with\":1,\"index_offset\":1}],[],[]]}";
-    ///		let mut profile = Profile::from_serialized(&serialized);
+    ///        let serialized = "{\"patterns\":{\"VC\":1},\"pattern_total\":1,\"pattern_keys\":[\"VC\"],\"pattern_vals\":[1],\"pattern_percentages\":[],\"pattern_ranks\":[],\"sizes\":{\"2\":1},\"size_total\":1,\"size_ranks\":[],\"processors\":4,\"facts\":[[{\"key\":\"O\",\"prior_key\":null,\"next_key\":\"K\",\"pattern_placeholder\":\"V\",\"starts_with\":1,\"ends_with\":0,\"index_offset\":0}],[{\"key\":\"K\",\"prior_key\":\"O\",\"next_key\":null,\"pattern_placeholder\":\"C\",\"starts_with\":0,\"ends_with\":1,\"index_offset\":1}],[],[]]}";
+    ///        let mut profile = Profile::from_serialized(&serialized);
     ///
     ///     profile.pre_generate();
     ///
@@ -382,13 +382,13 @@ impl Profile {
     /// use test_data_generation::Profile;
     ///
     /// fn main() {
-    /// 	let mut profile =  Profile::new();
-    ///		profile.analyze("One");
-    ///		profile.analyze("Two");
-    ///		profile.analyze("Three");
-    ///		profile.analyze("Four");
+    ///     let mut profile =  Profile::new();
+    ///        profile.analyze("One");
+    ///        profile.analyze("Two");
+    ///        profile.analyze("Three");
+    ///        profile.analyze("Four");
     ///
-    ///		assert_eq!(profile.patterns.len(), 4);
+    ///        assert_eq!(profile.patterns.len(), 4);
     /// }
     /// ```
     pub fn analyze(&mut self, entity: &str) {
@@ -418,10 +418,10 @@ impl Profile {
     /// use test_data_generation::Profile;
     ///
     /// fn main() {
-    /// 	let mut profile =  Profile::new();
-    ///		let results = PatternDefinition::new().analyze("Word");
+    ///     let mut profile =  Profile::new();
+    ///        let results = PatternDefinition::new().analyze("Word");
     ///
-    ///		assert_eq!(profile.apply_facts(results.0, results.1).unwrap(), 1);
+    ///        assert_eq!(profile.apply_facts(results.0, results.1).unwrap(), 1);
     /// }
     /// ```
     #[inline]
@@ -463,20 +463,20 @@ impl Profile {
     /// use test_data_generation::Profile;
     ///
     /// fn main() {
-    /// 	let mut profile =  Profile::new();
+    ///     let mut profile =  Profile::new();
     ///
-    ///    	profile.analyze("Smith, John");
-    ///    	profile.analyze("O'Brian, Henny");
-    ///    	profile.analyze("Dale, Danny");
-    ///    	profile.analyze("Rickets, Ronnae");
-    ///    	profile.analyze("Richard, Richie");
-    ///    	profile.analyze("Roberts, Blake");
-    ///    	profile.analyze("Conways, Sephen");
+    ///        profile.analyze("Smith, John");
+    ///        profile.analyze("O'Brian, Henny");
+    ///        profile.analyze("Dale, Danny");
+    ///        profile.analyze("Rickets, Ronnae");
+    ///        profile.analyze("Richard, Richie");
+    ///        profile.analyze("Roberts, Blake");
+    ///        profile.analyze("Conways, Sephen");
     ///
-    ///    	profile.pre_generate();
-    ///    	let test = [("CvccvccpSCvccvv".to_string(), 28.57142857142857 as f64), ("CcvccpSCvcc".to_string(), 42.857142857142854 as f64), ("CvccvccpSCvccvc".to_string(), 57.14285714285714 as f64), ("CvcvcccpSCcvcv".to_string(), 71.42857142857142 as f64), ("CvcvpSCvccc".to_string(), 85.7142857142857 as f64), ("V@CcvvcpSCvccc".to_string(), 99.99999999999997 as f64)];
+    ///        profile.pre_generate();
+    ///        let test = [("CvccvccpSCvccvv".to_string(), 28.57142857142857 as f64), ("CcvccpSCvcc".to_string(), 42.857142857142854 as f64), ("CvccvccpSCvccvc".to_string(), 57.14285714285714 as f64), ("CvcvcccpSCcvcv".to_string(), 71.42857142857142 as f64), ("CvcvpSCvccc".to_string(), 85.7142857142857 as f64), ("V@CcvvcpSCvccc".to_string(), 99.99999999999997 as f64)];
     ///
-    ///    	assert_eq!(profile.pattern_ranks, test);
+    ///        assert_eq!(profile.pattern_ranks, test);
     /// }
     /// ```
     #[inline]
@@ -528,17 +528,17 @@ impl Profile {
     /// use test_data_generation::Profile;
     ///
     /// fn main() {
-    /// 	let mut profile =  Profile::new();
-    ///		profile.analyze("One");
-    ///		profile.analyze("Two");
-    ///		profile.analyze("Three");
-    ///		profile.analyze("Four");
-    ///		profile.analyze("Five");
-    ///		profile.analyze("Six");
+    ///     let mut profile =  Profile::new();
+    ///        profile.analyze("One");
+    ///        profile.analyze("Two");
+    ///        profile.analyze("Three");
+    ///        profile.analyze("Four");
+    ///        profile.analyze("Five");
+    ///        profile.analyze("Six");
     ///
     ///     profile.cum_sizemap();
     ///
-    ///		print!("The size ranks are {:?}", profile.size_ranks);
+    ///        print!("The size ranks are {:?}", profile.size_ranks);
     ///     // The size ranks are [(3, 50), (4, 83.33333333333333), (5, 100)]
     /// }
     /// ```
@@ -582,17 +582,17 @@ impl Profile {
     /// use test_data_generation::Profile;
     ///
     /// fn main() {
-    /// 	let mut profile =  Profile::new();
+    ///     let mut profile =  Profile::new();
     ///
-    ///		profile.analyze("One");
-    ///		profile.analyze("Two");
-    ///		profile.analyze("Three");
-    ///		profile.analyze("Four");
-    ///		profile.analyze("Five");
+    ///        profile.analyze("One");
+    ///        profile.analyze("Two");
+    ///        profile.analyze("Three");
+    ///        profile.analyze("Four");
+    ///        profile.analyze("Five");
     ///
     ///     profile.pre_generate();
     ///
-    ///		print!("The test data {:?} was generated.", profile.generate());
+    ///        print!("The test data {:?} was generated.", profile.generate());
     /// }
     /// ```
     #[inline]
@@ -632,15 +632,15 @@ impl Profile {
     /// use test_data_generation::Profile;
     ///
     /// fn main() {
-    /// 	let mut profile =  Profile::new();
+    ///     let mut profile =  Profile::new();
     ///
-    ///		profile.analyze("01/13/2017");
-    ///		profile.analyze("11/24/2017");
-    ///		profile.analyze("08/05/2017");
+    ///        profile.analyze("01/13/2017");
+    ///        profile.analyze("11/24/2017");
+    ///        profile.analyze("08/05/2017");
     ///
     ///     profile.pre_generate();
     ///
-    ///  	let generated = profile.generate_from_pattern("##p##p####".to_string());
+    ///      let generated = profile.generate_from_pattern("##p##p####".to_string());
     ///
     ///     assert_eq!(generated.len(), 10);
     /// }
@@ -743,20 +743,20 @@ impl Profile {
     /// use test_data_generation::Profile;
     ///
     /// fn main() {
-    /// 	let mut profil =  Profile::new();
-    /// 	let sample_data = vec!("Smith, John".to_string(),"Doe, John".to_string(),"Dale, Danny".to_string(),"Rickets, Ronney".to_string());
+    ///     let mut profil =  Profile::new();
+    ///     let sample_data = vec!("Smith, John".to_string(),"Doe, John".to_string(),"Dale, Danny".to_string(),"Rickets, Ronney".to_string());
     ///
-    /// 	for sample in sample_data.iter().clone() {
-    /// 		profil.analyze(&sample);
-    /// 	}
+    ///     for sample in sample_data.iter().clone() {
+    ///         profil.analyze(&sample);
+    ///     }
     ///
-    /// 	// in order to learn the profile must be prepared with pre_genrate()
-    ///		// so it can generate data to learn from
-    ///		profil.pre_generate();
+    ///     // in order to learn the profile must be prepared with pre_genrate()
+    ///        // so it can generate data to learn from
+    ///        profil.pre_generate();
     ///
-    /// 	let learning = profil.learn_from_entity(sample_data).unwrap();
+    ///     let learning = profil.learn_from_entity(sample_data).unwrap();
     ///
-    /// 	assert_eq!(learning, true);
+    ///     assert_eq!(learning, true);
     /// }
     /// ```
     pub fn learn_from_entity(&mut self, control_list: Vec<String>) -> Result<bool, String> {
@@ -796,7 +796,7 @@ impl Profile {
     /// use test_data_generation::Profile;
     ///
     /// fn main() {
-    ///		let mut profile =  Profile::new();
+    ///        let mut profile =  Profile::new();
     ///
     ///     assert_eq!(profile.levenshtein_distance(&"kitten".to_string(), &"sitting".to_string()), 3 as usize);
     /// }
@@ -821,7 +821,7 @@ impl Profile {
     /// use test_data_generation::Profile;
     ///
     /// fn main() {
-    ///		let mut profile =  Profile::new();
+    ///        let mut profile =  Profile::new();
     ///
     ///     assert_eq!(profile.realistic_test(&"kitten".to_string(), &"sitting".to_string()), 76.92307692307692 as f64);
     /// }
@@ -862,17 +862,17 @@ impl Profile {
     /// use test_data_generation::Profile;
     ///
     /// fn main() {
-    /// 	let mut profile =  Profile::new();
-    ///		profile.analyze("One");
-    ///		profile.analyze("Two");
-    ///		profile.analyze("Three");
-    ///		profile.analyze("Four");
-    ///		profile.analyze("Five");
-    ///		profile.analyze("Six");
+    ///     let mut profile =  Profile::new();
+    ///        profile.analyze("One");
+    ///        profile.analyze("Two");
+    ///        profile.analyze("Three");
+    ///        profile.analyze("Four");
+    ///        profile.analyze("Five");
+    ///        profile.analyze("Six");
     ///
     ///     profile.pre_generate();
     ///
-    ///		print!("The size ranks are {:?}", profile.size_ranks);
+    ///        print!("The size ranks are {:?}", profile.size_ranks);
     ///     // The size ranks are [(3, 50), (4, 83.33333333333333), (5, 100)]
     /// }
     /// ```
@@ -894,23 +894,23 @@ impl Profile {
     /// use test_data_generation::Profile;
     ///
     /// fn main() {
-    /// 	let mut profile =  Profile::new();
+    ///     let mut profile =  Profile::new();
     ///
-    ///		profile.analyze("One");
-    ///		profile.analyze("Two");
-    ///		profile.analyze("Three");
+    ///        profile.analyze("One");
+    ///        profile.analyze("Two");
+    ///        profile.analyze("Three");
     ///
     ///     let x = profile.patterns.len();
     ///
     ///     profile.reset_analyze();
     ///
-    ///		profile.analyze("Four");
-    ///		profile.analyze("Five");
-    ///		profile.analyze("Six");
-    ///		profile.analyze("Seven");
-    ///		profile.analyze("Eight");
-    ///		profile.analyze("Nine");
-    ///		profile.analyze("Ten");
+    ///        profile.analyze("Four");
+    ///        profile.analyze("Five");
+    ///        profile.analyze("Six");
+    ///        profile.analyze("Seven");
+    ///        profile.analyze("Eight");
+    ///        profile.analyze("Nine");
+    ///        profile.analyze("Ten");
     ///
     ///     let y = profile.patterns.len();
     ///
@@ -943,14 +943,14 @@ impl Profile {
     /// use test_data_generation::Profile;
     ///
     /// fn main() {
-    /// 	// analyze the dataset
-    ///		let mut profile =  Profile::new();
+    ///     // analyze the dataset
+    ///        let mut profile =  Profile::new();
     ///     profile.analyze("Smith, John");
-    ///		profile.analyze("O'Brian, Henny");
-    ///		profile.analyze("Dale, Danny");
-    ///		profile.analyze("Rickets, Ronney");
+    ///        profile.analyze("O'Brian, Henny");
+    ///        profile.analyze("Dale, Danny");
+    ///        profile.analyze("Rickets, Ronney");
     ///
-    ///		profile.pre_generate();
+    ///        profile.pre_generate();
     ///
     ///     assert_eq!(profile.save("./tests/samples/sample-00-profile").unwrap(), true);
     /// }
@@ -994,11 +994,11 @@ impl Profile {
     /// use test_data_generation::Profile;
     ///
     /// fn main() {
-    /// 	// analyze the dataset
-    ///		let mut data_profile =  Profile::new();
+    ///     // analyze the dataset
+    ///        let mut data_profile =  Profile::new();
     ///
     ///     // analyze the dataset
-    ///		data_profile.analyze("OK");
+    ///        data_profile.analyze("OK");
     ///
     ///     println!("{}", data_profile.serialize());
     ///     // {"patterns":{"VC":1},"pattern_total":1,"pattern_keys":["VC"],"pattern_vals":[1],"pattern_percentages":[],"pattern_ranks":[],"sizes":{"2":1},"size_total":1,"size_ranks":[],"processors":4,"facts":[[{"key":"O","prior_key":null,"next_key":"K","pattern_placeholder":"V","starts_with":1,"ends_with":0,"index_offset":0}],[{"key":"K","prior_key":"O","next_key":null,"pattern_placeholder":"C","starts_with":0,"ends_with":1,"index_offset":1}],[],[]]}

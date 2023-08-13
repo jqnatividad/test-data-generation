@@ -82,7 +82,7 @@ fn main() {
   data_profile.analyze("Dale, Danny");
   data_profile.analyze("Rickets, Ronney");
 
-  // confirm 4 data samples were analyzed   		
+  // confirm 4 data samples were analyzed           
   assert_eq!(data_profile.patterns.len(), 4);
 
   // prepare the generator
@@ -144,7 +144,7 @@ use test_data_generation::data_sample_parser::DataSampleParser;
 fn main() {
   let mut dsp = DataSampleParser::from_file(&String::from("./tests/samples/sample-01-dsp"));
 
-	println!("Sample data is {:?}", dsp.generate_record()[0]);
+    println!("Sample data is {:?}", dsp.generate_record()[0]);
 }
 ```
 

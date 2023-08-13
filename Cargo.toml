@@ -13,8 +13,8 @@ description = "A simple to use, light-weight library that analyzes sample data t
 exclude = [
     "examples/*",
     "target/*",
-	"tests/*",
-	"benches/*",
+    "tests/*",
+    "benches/*",
 ]
 
 [badges]
