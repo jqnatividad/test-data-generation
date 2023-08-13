@@ -769,8 +769,7 @@ impl Profile {
                 percent_similarity.push(self.realistic_test(control, &experiment));
             }
 
-            let percent =
-                percent_similarity.iter().sum::<f64>() / percent_similarity.len() as f64;
+            let percent = percent_similarity.iter().sum::<f64>() / percent_similarity.len() as f64;
             debug!("Percent similarity is {} ...", &percent);
 
             if percent >= 80_f64 {

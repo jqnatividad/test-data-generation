@@ -556,12 +556,8 @@ impl DataSampleParser {
 
     fn else_default_delimiter(delimiter: Option<u8>) -> u8 {
         match delimiter {
-            Some(d) => {
-                d
-            }
-            None => {
-                DELIMITER
-            }
+            Some(d) => d,
+            None => DELIMITER,
         }
     }
 
