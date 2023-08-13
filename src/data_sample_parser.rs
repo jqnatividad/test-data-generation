@@ -734,7 +734,7 @@ impl DataSampleParser {
     ///     assert_eq!(dsp.levenshtein_distance(&"kitten".to_string(), &"sitting".to_string()), 3 as usize);
     /// }
     ///
-    pub fn levenshtein_distance(&mut self, control: &String, experiment: &String) -> usize {
+    pub fn levenshtein_distance(&mut self, control: &str, experiment: &str) -> usize {
         // https://docs.rs/levenshtein/1.0.3/levenshtein/fn.levenshtein.html
         levenshtein_distance!(control, experiment)
     }
